@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/2/trunk/AfterDash
+END
+AfterDash.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/10/trunk/AfterDash/AfterDash.csproj
+END
+AfterDash.resx
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/10/trunk/AfterDash/AfterDash.resx
+END
+AxisCamera.cs
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/10/trunk/AfterDash/AxisCamera.cs
+END
+Logger.cs
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/11/trunk/AfterDash/Logger.cs
+END
+AfterDash.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/10/trunk/AfterDash/AfterDash.Designer.cs
+END
+AfterDash.cs
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/10/trunk/AfterDash/AfterDash.cs
+END
+DashboardData.cs
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/9/trunk/AfterDash/DashboardData.cs
+END
+RobotArm.cs
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/10/trunk/AfterDash/RobotArm.cs
+END
+Program.cs
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/2/trunk/AfterDash/Program.cs
+END
+AfterDash.csproj.user
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/2/trunk/AfterDash/AfterDash.csproj.user
+END

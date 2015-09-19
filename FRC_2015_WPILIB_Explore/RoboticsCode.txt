@@ -1,0 +1,15 @@
+2 elevators, one is narrow and one is wide
+	elevator1 narrow
+			2 talonSRX, driving single drive shaft, using one encoder and 3 limit switches
+			2 limit switches for the maximum extents of the elevator + 1 switch for the tote is loaded detection
+	elevator1 wide
+			1 talonSRX + 1 TalonSR, driving single drive shaft, using one encoder and 3 limit switches
+			2 limit switches for the maximum extents of the elevator + 1 switch for the tote is loaded detection
+	Crane 
+			1 double solenoid to raise and lower the crane
+			One talonSR for extension control
+			2 limit switches for max/min extensions
+	Mecanum Drive
+			4 talonSRX's each with its own encoder.
+			1 Six-degrees-of-freedom Sensor. (I2C)
+			

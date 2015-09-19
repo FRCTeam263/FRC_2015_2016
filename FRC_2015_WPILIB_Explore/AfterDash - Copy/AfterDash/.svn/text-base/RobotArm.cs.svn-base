@@ -1,0 +1,125 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+
+namespace AfterDash
+{
+    class RobotArm
+    {
+        float elbowX;
+        float elbowY;
+
+        float wristX;
+        float wristY;
+
+        float clawAngle;
+
+        float armAngle;
+        float wristAngle;
+
+        Control dash;
+
+        public RobotArm(Control d)
+        {
+            clawAngle = 0;
+            dash = d;
+            UpdateArm();
+        }
+
+        public void SetArmAngle(float val)
+        {
+            armAngle = val;
+            UpdateArm();
+        }
+
+        public void SetWristAngle(float val)
+        {
+            wristAngle = val;
+            UpdateArm();
+        }
+
+        public void SetClawAngle(float val)
+        {
+            clawAngle = val;
+            UpdateArm();
+        }
+
+        public float GetClawAngle()
+        {
+            return clawAngle;
+        }
+
+        public void UpdateArm()
+        {
+            PaintArm();
+            PaintArmBase();
+            PaintWrist();
+            PaintClaw();
+        }
+
+        private void PaintArm()
+        {
+            float xm = 83 * (float) Math.Cos((90 - armAngle) * (Math.PI / 180));
+            float ym = 83 * (float) Math.Sin((90 - armAngle) * (Math.PI / 180));
+
+            System.Drawing.Graphics graphicsObj;
+            graphicsObj = dash.CreateGraphics();
+
+            graphicsObj.Clear(System.Drawing.Color.White);
+            Pen myPen = new Pen(System.Drawing.Color.Black, 4);
+
+            elbowX = (dash.Width / 2) - xm;
+            elbowY = 126 - ym;
+
+            graphicsObj.DrawLine(myPen, dash.Width / 2, 126, elbowX, elbowY);
+        }
+        private void PaintArmBase()
+        {
+            System.Drawing.Graphics graphicsObj;
+            graphicsObj = dash.CreateGraphics();
+
+            Pen myPen = new Pen(System.Drawing.Color.Black, 8);
+
+            graphicsObj.DrawLine(myPen, dash.Width / 2, 200, dash.Width / 2, 126);
+        }
+        private void PaintWrist()
+        {
+            float xm = 15 * (float)Math.Cos((250 - wristAngle - armAngle) * (Math.PI / 180));
+            float ym = 15 * (float)Math.Sin((250 - wristAngle - armAngle) * (Math.PI / 180));
+
+            System.Drawing.Graphics graphicsObj;
+            graphicsObj = dash.CreateGraphics();
+
+            Pen myPen = new Pen(System.Drawing.Color.Black, 4);
+
+            wristX = elbowX - xm;
+            wristY = elbowY - ym;
+
+            graphicsObj.DrawLine(myPen, elbowX, elbowY, wristX, wristY); 
+        }
+
+        private void PaintClaw()
+        {
+            float upjaw_x = 15 * (float)Math.Cos((250 - clawAngle - wristAngle - armAngle) * (Math.PI / 180));
+            float upjaw_y = 15 * (float)Math.Sin((250 - clawAngle - wristAngle - armAngle) * (Math.PI / 180));
+
+            float downjaw_x = 15 * (float)Math.Cos((250 + clawAngle - wristAngle - armAngle) * (Math.PI / 180));
+            float downjaw_y = 15 * (float)Math.Sin((250 + clawAngle - wristAngle - armAngle) * (Math.PI / 180));
+
+            System.Drawing.Graphics graphicsObj;
+            graphicsObj = dash.CreateGraphics();
+
+
+            Pen myPen = new Pen(System.Drawing.Color.Black, 4);
+
+            graphicsObj.DrawLine(myPen, wristX, wristY, wristX - upjaw_x, wristY - upjaw_y);
+            graphicsObj.DrawLine(myPen, wristX, wristY, wristX - downjaw_x, wristY - downjaw_y); 
+        }
+    }
+}

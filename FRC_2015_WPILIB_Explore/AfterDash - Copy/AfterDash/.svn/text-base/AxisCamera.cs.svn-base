@@ -1,0 +1,90 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Net;
+using System.IO;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Windows.Forms;
+
+namespace AfterDash
+{
+    class AxisCamera
+    {
+
+        Thread recvThread;
+        AfterDash dashboard;
+
+        string sourceURL = "http://10.2.63.3/axis-cgi/jpg/image.cgi?resolution=640x480";
+        byte[] buffer = new byte[100000];
+        int read, total = 0;
+
+        public AxisCamera(AfterDash dash)
+        {
+            dashboard = dash;
+            recvThread = new Thread(recv);
+        }
+
+        public void StartStream()
+        {
+            recvThread.Start();
+        }
+
+        public void StopStream()
+        {
+            recvThread.Abort();
+        }
+
+        void recv()
+        {
+            /*try
+            {
+                while (true)
+                {
+                    HttpWebRequest req = (HttpWebRequest)WebRequest.Create(sourceURL);
+                    WebResponse resp = req.GetResponse();
+                    Stream stream = resp.GetResponseStream();
+
+                    while ((read = stream.Read(buffer, total, 1)) != 0)
+                    {
+                        total += read;
+                    }
+
+                    Bitmap bmp = (Bitmap)Bitmap.FromStream(
+                                  new MemoryStream(buffer, 0, total));
+                    dashboard.PrintCamera(BitmapToImage(bmp));
+
+                    total = 0;
+                }
+            }
+            catch (Exception e) { }*/
+            try
+            {
+                // Set properties, deciding what url completion to use by MediaType.
+                dashboard.myAMC.MediaUsername = "root";
+                dashboard.myAMC.MediaPassword = "admin";
+                dashboard.myAMC.MediaType = "mjpg";
+                dashboard.myAMC.MediaURL = "http://10.2.63.3/axis-cgi/mjpg/video.cgi";
+
+                // Start the streaming
+                dashboard.myAMC.Play();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to play stream: " + ex.Message);
+            }
+        }
+
+        public Image BitmapToImage(Bitmap Img)
+        {
+            Stream imageStream = new MemoryStream();
+            using (Img)
+            {
+                Img.Save(imageStream, ImageFormat.Jpeg);
+            }
+            return Image.FromStream(imageStream);
+        }
+    }
+}
