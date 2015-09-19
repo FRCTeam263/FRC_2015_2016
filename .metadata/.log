@@ -7241,3 +7241,12 @@ java.io.IOException: Cannot run program "g++": Launching failed
 
 !ENTRY org.eclipse.cdt.core 1 0 2015-09-19 16:58:28.382
 !MESSAGE Indexed 'ShirtShooter' (1 sources, 160 headers) in 1.13 sec: 12,014 declarations; 5,349 references; 115 unresolved inclusions; 49 syntax errors; 1,557 unresolved names (8.2%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-09-19 17:05:07.822
+!MESSAGE Indexed 'DIO_Test' (1 sources, 378 headers) in 5.19 sec: 42,261 declarations; 58,688 references; 0 unresolved inclusions; 16 syntax errors; 12 unresolved names (0.012%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-09-19 17:05:12.915
+!MESSAGE Indexed 'AtlasPivot' (10 sources, 396 headers) in 5.09 sec: 43,963 declarations; 64,085 references; 0 unresolved inclusions; 16 syntax errors; 12 unresolved names (0.011%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-09-19 17:06:10.466
+!MESSAGE Indexed 'AtlasPivot' (10 sources, 396 headers) in 4.95 sec: 43,963 declarations; 64,085 references; 0 unresolved inclusions; 16 syntax errors; 12 unresolved names (0.011%)
