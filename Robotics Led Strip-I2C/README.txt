@@ -1,0 +1,1 @@
+For the wiring diagram, it should be a 12v power supply instread of a 9v battery. I couldnt find any power supplies other than 9v. Also i put a single rgb led because there was no strip. I tried to make this as clear as possible. The I2C wiring from RoboRIO to arduino is easy.
