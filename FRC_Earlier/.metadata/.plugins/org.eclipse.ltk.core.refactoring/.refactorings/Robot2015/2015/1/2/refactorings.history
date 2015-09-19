@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Robot2015/src/Modules&apos; to &apos;Systems&apos;" description="Rename resource &apos;Modules&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/Modules" name="Systems" stamp="1420344718618" updateReferences="true"/>
+</session>

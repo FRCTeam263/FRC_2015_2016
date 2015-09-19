@@ -1,0 +1,26 @@
+16:36:15 **** Rebuild of configuration Debug for project 2015Robot ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Administrator/wpilib/cpp/current/include" "-IC:\\Users\\Administrator\\workspace\\2015Robot\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Systems\\MecanumDrive.o" "..\\src\\Systems\\MecanumDrive.cpp" 
+In file included from ..\src\Systems\MecanumDrive.cpp:1:0:
+..\src\Systems\MecanumDrive.h:1:9: error: macro names must be identifiers
+ #ifndef 2015_ROBOT_SRC_SYSTEMS_MECANUMDRIVE_H_
+         ^
+..\src\Systems\MecanumDrive.cpp:3:1: error: 'MecanumDrive' does not name a type
+ MecanumDrive::MecanumDrive(){
+ ^
+..\src\Systems\MecanumDrive.cpp:16:1: error: 'MecanumDrive' does not name a type
+ MecanumDrive::~MecanumDrive(void){
+ ^
+..\src\Systems\MecanumDrive.cpp:23:6: error: 'MecanumDrive' has not been declared
+ void MecanumDrive::Drive(Joystick *drivePad){
+      ^
+..\src\Systems\MecanumDrive.cpp:23:26: error: variable or field 'Drive' declared void
+ void MecanumDrive::Drive(Joystick *drivePad){
+                          ^
+..\src\Systems\MecanumDrive.cpp:23:26: error: 'Joystick' was not declared in this scope
+..\src\Systems\MecanumDrive.cpp:23:36: error: 'drivePad' was not declared in this scope
+ void MecanumDrive::Drive(Joystick *drivePad){
+                                    ^
+
+16:36:15 Build Finished (took 70ms)
+

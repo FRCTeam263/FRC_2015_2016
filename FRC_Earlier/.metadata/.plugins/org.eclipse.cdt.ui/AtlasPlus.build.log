@@ -1,0 +1,120 @@
+15:40:38 **** Rebuild of configuration Debug for project AtlasPlus ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Administrator/wpilib/cpp/current/include" "-IC:\\Users\\Administrator\\workspace\\AtlasPlus\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Systems\\Autonomous.o" "..\\src\\Systems\\Autonomous.cpp" 
+..\src\Systems\Autonomous.cpp: In member function 'void AutonomousSystem::Run3Tote1CanAuto(MecanumDrive*, LiftSystem*)':
+..\src\Systems\Autonomous.cpp:40:8: warning: enumeration value 'Lift1Tote' not handled in switch [-Wswitch]
+  switch(autoMode){
+        ^
+..\src\Systems\Autonomous.cpp:40:8: warning: enumeration value 'Rotate2Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:40:8: warning: enumeration value 'Rotate3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:40:8: warning: enumeration value 'RotateInAutoZone' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp: In member function 'void AutonomousSystem::Run2Tote1CanAuto(MecanumDrive*, LiftSystem*)':
+..\src\Systems\Autonomous.cpp:375:8: warning: enumeration value 'Lift1Tote' not handled in switch [-Wswitch]
+  switch(autoMode){
+        ^
+..\src\Systems\Autonomous.cpp:375:8: warning: enumeration value 'Rotate2Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:375:8: warning: enumeration value 'DriveTo3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:375:8: warning: enumeration value 'Rotate3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:375:8: warning: enumeration value 'Lineup3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:375:8: warning: enumeration value 'StrafeRight3Tote' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:375:8: warning: enumeration value 'Stack3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:375:8: warning: enumeration value 'Score3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp: In member function 'void AutonomousSystem::Run1Tote1CanAuto(MecanumDrive*, LiftSystem*)':
+..\src\Systems\Autonomous.cpp:586:8: warning: enumeration value 'StrafeRight' not handled in switch [-Wswitch]
+  switch(autoMode){
+        ^
+..\src\Systems\Autonomous.cpp:586:8: warning: enumeration value 'Drop1Tote' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:586:8: warning: enumeration value 'Lineup2Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:586:8: warning: enumeration value 'Rotate2Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:586:8: warning: enumeration value 'DriveTo3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:586:8: warning: enumeration value 'Rotate3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:586:8: warning: enumeration value 'Lineup3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:586:8: warning: enumeration value 'StrafeRight3Tote' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:586:8: warning: enumeration value 'Stack3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:586:8: warning: enumeration value 'RotateToAutoZone' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:586:8: warning: enumeration value 'DriveToAutoZone' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:586:8: warning: enumeration value 'Score3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp: In member function 'void AutonomousSystem::Run1CanPickup(MecanumDrive*, LiftSystem*)':
+..\src\Systems\Autonomous.cpp:695:8: warning: enumeration value 'Lift1Tote' not handled in switch [-Wswitch]
+  switch(autoMode){
+        ^
+..\src\Systems\Autonomous.cpp:695:8: warning: enumeration value 'Rotate1Tote' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:695:8: warning: enumeration value 'StrafeRight' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:695:8: warning: enumeration value 'Drop1Tote' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:695:8: warning: enumeration value 'Lineup2Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:695:8: warning: enumeration value 'Rotate2Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:695:8: warning: enumeration value 'DriveTo3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:695:8: warning: enumeration value 'Rotate3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:695:8: warning: enumeration value 'Lineup3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:695:8: warning: enumeration value 'StrafeRight3Tote' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:695:8: warning: enumeration value 'Stack3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:695:8: warning: enumeration value 'RotateToAutoZone' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:695:8: warning: enumeration value 'Score3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:695:8: warning: enumeration value 'RotateInAutoZone' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp: In member function 'void AutonomousSystem::RunDriveForward(MecanumDrive*)':
+..\src\Systems\Autonomous.cpp:742:8: warning: enumeration value 'Lift1Tote' not handled in switch [-Wswitch]
+  switch(autoMode){
+        ^
+..\src\Systems\Autonomous.cpp:742:8: warning: enumeration value 'Rotate1Tote' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:742:8: warning: enumeration value 'StrafeRight' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:742:8: warning: enumeration value 'Drop1Tote' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:742:8: warning: enumeration value 'Lineup2Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:742:8: warning: enumeration value 'Rotate2Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:742:8: warning: enumeration value 'DriveTo3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:742:8: warning: enumeration value 'Rotate3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:742:8: warning: enumeration value 'Lineup3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:742:8: warning: enumeration value 'StrafeRight3Tote' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:742:8: warning: enumeration value 'Stack3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:742:8: warning: enumeration value 'RotateToAutoZone' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:742:8: warning: enumeration value 'Score3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:742:8: warning: enumeration value 'RotateInAutoZone' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp: In member function 'void AutonomousSystem::RunFast1Can(MecanumDrive*, LiftSystem*)':
+..\src\Systems\Autonomous.cpp:776:8: warning: enumeration value 'Lift1Tote' not handled in switch [-Wswitch]
+  switch(autoMode){
+        ^
+..\src\Systems\Autonomous.cpp:776:8: warning: enumeration value 'Rotate1Tote' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:776:8: warning: enumeration value 'StrafeRight' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:776:8: warning: enumeration value 'Drop1Tote' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:776:8: warning: enumeration value 'Lineup2Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:776:8: warning: enumeration value 'Rotate2Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:776:8: warning: enumeration value 'DriveTo3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:776:8: warning: enumeration value 'Rotate3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:776:8: warning: enumeration value 'Lineup3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:776:8: warning: enumeration value 'StrafeRight3Tote' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:776:8: warning: enumeration value 'Stack3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:776:8: warning: enumeration value 'RotateToAutoZone' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:776:8: warning: enumeration value 'DriveToAutoZone' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:776:8: warning: enumeration value 'Score3Totes' not handled in switch [-Wswitch]
+..\src\Systems\Autonomous.cpp:776:8: warning: enumeration value 'RotateInAutoZone' not handled in switch [-Wswitch]
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Administrator/wpilib/cpp/current/include" "-IC:\\Users\\Administrator\\workspace\\AtlasPlus\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Systems\\ElevatorSpeedAlgorithm.o" "..\\src\\Systems\\ElevatorSpeedAlgorithm.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Administrator/wpilib/cpp/current/include" "-IC:\\Users\\Administrator\\workspace\\AtlasPlus\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Administrator/wpilib/cpp/current/include" "-IC:\\Users\\Administrator\\workspace\\AtlasPlus\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\NavXLib\\AHRS.o" "..\\src\\NavXLib\\AHRS.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Administrator/wpilib/cpp/current/include" "-IC:\\Users\\Administrator\\workspace\\AtlasPlus\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\NavXLib\\IMU.o" "..\\src\\NavXLib\\IMU.cpp" 
+..\src\NavXLib\IMU.cpp: In function 'void imuTask(IMU*)':
+..\src\NavXLib\IMU.cpp:47:9: warning: unused variable 'partial_binary_packet_count' [-Wunused-variable]
+     int partial_binary_packet_count = 0;
+         ^
+..\src\NavXLib\IMU.cpp:48:9: warning: unused variable 'stream_response_receive_count' [-Wunused-variable]
+     int stream_response_receive_count = 0;
+         ^
+..\src\NavXLib\IMU.cpp:49:9: warning: unused variable 'stream_response_timeout_count' [-Wunused-variable]
+     int stream_response_timeout_count = 0;
+         ^
+..\src\NavXLib\IMU.cpp:50:9: warning: unused variable 'timeout_count' [-Wunused-variable]
+     int timeout_count = 0;
+         ^
+..\src\NavXLib\IMU.cpp:51:9: warning: unused variable 'discarded_bytes_count' [-Wunused-variable]
+     int discarded_bytes_count = 0;
+         ^
+..\src\NavXLib\IMU.cpp:52:9: warning: unused variable 'port_reset_count' [-Wunused-variable]
+     int port_reset_count = 0;
+         ^
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Administrator/wpilib/cpp/current/include" "-IC:\\Users\\Administrator\\workspace\\AtlasPlus\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Systems\\MecanumDrive.o" "..\\src\\Systems\\MecanumDrive.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Administrator/wpilib/cpp/current/include" "-IC:\\Users\\Administrator\\workspace\\AtlasPlus\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\NavXLib\\IMUAdvanced.o" "..\\src\\NavXLib\\IMUAdvanced.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Administrator/wpilib/cpp/current/include" "-IC:\\Users\\Administrator\\workspace\\AtlasPlus\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Systems\\Utilities.o" "..\\src\\Systems\\Utilities.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Administrator/wpilib/cpp/current/include" "-IC:\\Users\\Administrator\\workspace\\AtlasPlus\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Systems\\LiftSystem.o" "..\\src\\Systems\\LiftSystem.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Administrator/wpilib/cpp/current/lib" -Wl,-rpath,/opt/GenICam_v2_3/bin/Linux_armv7-a -o FRCUserProgram "src\\Systems\\Utilities.o" "src\\Systems\\MecanumDrive.o" "src\\Systems\\LiftSystem.o" "src\\Systems\\ElevatorSpeedAlgorithm.o" "src\\Systems\\Autonomous.o" "src\\Robot.o" "src\\NavXLib\\IMUAdvanced.o" "src\\NavXLib\\IMU.o" "src\\NavXLib\\AHRS.o" -lwpi 
+c:/frc/bin/../lib/gcc/arm-frc-linux-gnueabi/4.9.1/../../../../arm-frc-linux-gnueabi/bin/ld.exe: warning: libstdc++.so.6, needed by C:\Users\Administrator/wpilib/cpp/current/lib\libFRC_NetworkCommunication.so.1.5.0, not found (try using -rpath or -rpath-link)
+
+15:41:11 Build Finished (took 32s.989ms)
+
