@@ -1,5 +1,10 @@
 #include "WPILib.h"
 
+#include <DoubleSolenoid.h>
+#define PIVOT_PISTON_FORWARD_CHANNEL 0
+#define PIVOT_PISTON_REVERSE_CHANNEL 1
+
+
 /**
  * This is a demo program showing the use of the RobotDrive class.
  * The SampleRobot class is the base of a robot application that will automatically call your
@@ -17,6 +22,7 @@ class Robot: public SampleRobot
 	Timer HeartbeatTimer;
 	const double HeartbeatTickDurationInSeconds = 5.0;
 	long lifetimeTickCounter = 0;
+	DoubleSolenoid *theDoubleSolenoid;
 
 public:
 	Robot() :
@@ -27,10 +33,14 @@ public:
 		HeartbeatTimer.Reset();
 		HeartbeatTimer.Start();
 		printf("RoboRIO Initialized.\n");
+		theDoubleSolenoid = new DoubleSolenoid(PIVOT_PISTON_FORWARD_CHANNEL,PIVOT_PISTON_REVERSE_CHANNEL);
+		theDoubleSolenoid->Set(DoubleSolenoid::kReverse);  // Retract it so robot can move around.
 	}
 
 	~Robot()
 	{
+		theDoubleSolenoid->Set(DoubleSolenoid::kReverse); // Retract it so robot can move and be moved around.
+		delete theDoubleSolenoid;
 	}
 
 	/**
@@ -78,11 +88,25 @@ private:
     {
 		if (HeartbeatTimer.HasPeriodPassed(HeartbeatTickDurationInSeconds))
 		{
-			printf("Heartbeat tick %ld (every %f seconds).\n", lifetimeTickCounter++, HeartbeatTickDurationInSeconds);
+			printf("Heartbeat tick %ld (every %f seconds).  DoubleSolenoid position(%d)\n",
+					lifetimeTickCounter++,
+					HeartbeatTickDurationInSeconds,
+					TogglePiston());
 			HeartbeatTimer.Reset();
 			HeartbeatTimer.Start();
 		}
     }
+
+	int TogglePiston()
+	{
+		if (theDoubleSolenoid->Get() == DoubleSolenoid::kReverse) {
+    		theDoubleSolenoid->Set(DoubleSolenoid::kForward); // Deploy it so its anchored, and robot can pivot arround it.
+    	} else {
+    		theDoubleSolenoid->Set(DoubleSolenoid::kReverse); // Retract it so robot can move around.
+    	}
+		return theDoubleSolenoid->Get();
+
+	}
 
 };
 
