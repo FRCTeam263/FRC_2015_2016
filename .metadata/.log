@@ -8497,3 +8497,45 @@ org.eclipse.core.runtime.CoreException: No property tester contributes a propert
 
 !ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 19:07:53.932
 !MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 19:37:28.940
+!MESSAGE Running ant file: C:\Users\Administrator\workspace\FRC_2015_2016\ShirtShooter\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 19:37:28.950
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 19:40:31.182
+!MESSAGE Running ant file: C:\Users\Administrator\workspace\FRC_2015_2016\ShirtShooter\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 19:40:31.192
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 19:46:31.297
+!MESSAGE Running ant file: C:\Users\Administrator\workspace\FRC_2015_2016\ShirtShooter\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 19:46:31.306
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 19:50:46.714
+!MESSAGE Running ant file: C:\Users\Administrator\workspace\FRC_2015_2016\ShirtShooter\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 19:50:46.724
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 19:52:15.142
+!MESSAGE Running ant file: C:\Users\Administrator\workspace\FRC_2015_2016\ShirtShooter\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 19:52:15.151
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 19:53:28.536
+!MESSAGE Running ant file: C:\Users\Administrator\workspace\FRC_2015_2016\ShirtShooter\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 19:53:28.545
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 19:55:08.940
+!MESSAGE Running ant file: C:\Users\Administrator\workspace\FRC_2015_2016\ShirtShooter\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 19:55:08.950
+!MESSAGE Targets: deploy, Mode: run

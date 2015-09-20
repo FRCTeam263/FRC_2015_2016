@@ -1,10 +1,14 @@
 #include "WPILib.h"
 #include "Utilities.h"
 
+#include <Solenoid.h>
 #include <DoubleSolenoid.h>
 
-#define PIVOT_PISTON_FORWARD_CHANNEL 0
-#define PIVOT_PISTON_REVERSE_CHANNEL 1
+#define DOUBLESOLENOID_FORWARD_CHANNEL 0
+#define DOUBLESOLENOID_REVERSE_CHANNEL 1
+
+#define SOLENOID_LEFT_CHANNEL 0
+#define SOLENOID_RIGHT_CHANNEL 1
 
 #define GAMEPAD_BUTTON_A 1
 #define GAMEPAD_BUTTON_B 2
@@ -15,6 +19,14 @@
 #define GAMEPAD_BUTTON_LEFT 7
 #define GAMEPAD_BUTTON_RIGHT 8
 
+#define GAMEPAD_AXIS_LEFT_STICK_HORIZONTAL 0
+#define GAMEPAD_AXIS_LEFT_STICK_VERTICAL 1
+#define GAMEPAD_AXIS_LEFT_TRIGGER 2
+#define GAMEPAD_AXIS_RIGHT_TRIGGER 3
+#define GAMEPAD_AXIS_RIGHT_STICK_HORIZONTAL 4
+#define GAMEPAD_AXIS_RIGHTT_STICK_VERTICAL 5
+
+
 class Robot: public SampleRobot
 {
 	RobotDrive myRobot; // robot drive system
@@ -23,6 +35,8 @@ class Robot: public SampleRobot
 	const double HeartbeatTickDurationInSeconds = 5.0;
 	long lifetimeTickCounter = 0;
 	Utilities *theUtilities;
+	Solenoid *theSolenoid_Left;
+	Solenoid *theSolenoid_Right;
 	DoubleSolenoid *theDoubleSolenoid;
 
 public:
@@ -35,13 +49,17 @@ public:
 		printf("RoboRIO Initialized.\n");
 		theUtilities = new Utilities();
 		gamepad = new Joystick(0);
-		theDoubleSolenoid = new DoubleSolenoid(PIVOT_PISTON_FORWARD_CHANNEL,PIVOT_PISTON_REVERSE_CHANNEL);
+		theSolenoid_Left = new Solenoid(SOLENOID_LEFT_CHANNEL);
+		theSolenoid_Right = new Solenoid(SOLENOID_RIGHT_CHANNEL);
+		theDoubleSolenoid = new DoubleSolenoid(DOUBLESOLENOID_FORWARD_CHANNEL,DOUBLESOLENOID_REVERSE_CHANNEL);
 		theDoubleSolenoid->Set(DoubleSolenoid::kReverse);  // Retract it so robot can move around.
 	}
 
 	~Robot()
 	{
 		theDoubleSolenoid->Set(DoubleSolenoid::kReverse); // Retract it so robot can move and be moved around.
+		delete theSolenoid_Left;
+		delete theSolenoid_Right;
 		delete theDoubleSolenoid;
 		delete theUtilities;
 	}
@@ -68,7 +86,8 @@ public:
 		myRobot.SetSafetyEnabled(true);
 		while (IsOperatorControl() && IsEnabled())
 		{
-			CommandPivotPistonPosition();
+			//CommandPivotPistonPosition();
+			ProcessFireControl();
 			ProcessHeartbeat();
 
 			myRobot.ArcadeDrive(gamepad); // drive with arcade style (use right stick)
@@ -94,6 +113,7 @@ private:
 					HeartbeatTickDurationInSeconds);
 			HeartbeatTimer.Reset();
 			HeartbeatTimer.Start();
+			printf("Left Trigger Axis %f\n",gamepad->GetRawAxis(GAMEPAD_AXIS_LEFT_TRIGGER));
 		}
     }
 
@@ -117,6 +137,33 @@ private:
 	    	}
 			printf("PistonPositionToggled (%d)\n", TogglePiston());
 	    }
+	}
+
+	void ProcessFireControl() {
+		static bool lastArmingButtonState = 0;
+		if (gamepad->GetRawButton(GAMEPAD_BUTTON_Y)) {
+			if (!lastArmingButtonState) {
+				printf("DANGER!  Shooter is Armed.  DANGER!\n");
+			}
+			lastArmingButtonState = true;
+			if (gamepad->GetRawAxis(GAMEPAD_AXIS_LEFT_TRIGGER) > 0.8) {
+				printf("LEFT CANNON FIRED!\n");
+				theSolenoid_Left->Set(true);
+				wait(1.0);
+				theSolenoid_Left->Set(false);
+			}
+			if (gamepad->GetRawAxis(GAMEPAD_AXIS_RIGHT_TRIGGER) > 0.8) {
+				printf("RIGHT CANNON FIRED!\n");
+				theSolenoid_Right->Set(true);
+				wait(1.0);
+				theSolenoid_Right->Set(false);
+			}
+		} else {
+			if (lastArmingButtonState) {
+				printf("Shooter is DISARMED.\n");
+			}
+			lastArmingButtonState = false;
+		}
 	}
 };
 
