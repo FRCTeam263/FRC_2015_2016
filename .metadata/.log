@@ -8539,3 +8539,21 @@ org.eclipse.core.runtime.CoreException: No property tester contributes a propert
 
 !ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 19:55:08.950
 !MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 20:23:36.100
+!MESSAGE Running ant file: C:\Users\Administrator\workspace\FRC_2015_2016\ShirtShooter\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 20:23:36.109
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 20:24:50.721
+!MESSAGE Running ant file: C:\Users\Administrator\workspace\FRC_2015_2016\ShirtShooter\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 20:24:50.731
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 20:27:32.889
+!MESSAGE Running ant file: C:\Users\Administrator\workspace\FRC_2015_2016\ShirtShooter\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2015-09-20 20:27:32.899
+!MESSAGE Targets: deploy, Mode: run

@@ -4,11 +4,11 @@
 #include <Solenoid.h>
 #include <DoubleSolenoid.h>
 
-#define DOUBLESOLENOID_FORWARD_CHANNEL 0
-#define DOUBLESOLENOID_REVERSE_CHANNEL 1
+#define DOUBLESOLENOID_LEFT_CANNON_FORWARD_CHANNEL 0
+#define DOUBLESOLENOID_LEFT_CANNON_REVERSE_CHANNEL 1
 
-#define SOLENOID_LEFT_CHANNEL 0
-#define SOLENOID_RIGHT_CHANNEL 1
+#define DOUBLESOLENOID_RIGHT_CANNON_FORWARD_CHANNEL 2
+#define DOUBLESOLENOID_RIGHT_CANNON_REVERSE_CHANNEL 3
 
 #define GAMEPAD_BUTTON_A 1
 #define GAMEPAD_BUTTON_B 2
@@ -35,9 +35,8 @@ class Robot: public SampleRobot
 	const double HeartbeatTickDurationInSeconds = 5.0;
 	long lifetimeTickCounter = 0;
 	Utilities *theUtilities;
-	Solenoid *theSolenoid_Left;
-	Solenoid *theSolenoid_Right;
-	DoubleSolenoid *theDoubleSolenoid;
+	DoubleSolenoid *theDoubleSolenoid_LeftCannon;
+	DoubleSolenoid *theDoubleSolenoid_RightCannon;
 
 public:
 	Robot() :
@@ -49,19 +48,20 @@ public:
 		printf("RoboRIO Initialized.\n");
 		theUtilities = new Utilities();
 		gamepad = new Joystick(0);
-		theSolenoid_Left = new Solenoid(SOLENOID_LEFT_CHANNEL);
-		theSolenoid_Right = new Solenoid(SOLENOID_RIGHT_CHANNEL);
-		theDoubleSolenoid = new DoubleSolenoid(DOUBLESOLENOID_FORWARD_CHANNEL,DOUBLESOLENOID_REVERSE_CHANNEL);
-		theDoubleSolenoid->Set(DoubleSolenoid::kReverse);  // Retract it so robot can move around.
+		theDoubleSolenoid_LeftCannon = new DoubleSolenoid(DOUBLESOLENOID_LEFT_CANNON_FORWARD_CHANNEL,DOUBLESOLENOID_LEFT_CANNON_REVERSE_CHANNEL);
+		theDoubleSolenoid_LeftCannon->Set(DoubleSolenoid::kReverse);
+		theDoubleSolenoid_RightCannon = new DoubleSolenoid(DOUBLESOLENOID_RIGHT_CANNON_FORWARD_CHANNEL,DOUBLESOLENOID_RIGHT_CANNON_REVERSE_CHANNEL);
+		theDoubleSolenoid_RightCannon->Set(DoubleSolenoid::kReverse);
 	}
 
 	~Robot()
 	{
-		theDoubleSolenoid->Set(DoubleSolenoid::kReverse); // Retract it so robot can move and be moved around.
-		delete theSolenoid_Left;
-		delete theSolenoid_Right;
-		delete theDoubleSolenoid;
+		theDoubleSolenoid_LeftCannon->Set(DoubleSolenoid::kReverse);
+		theDoubleSolenoid_RightCannon->Set(DoubleSolenoid::kReverse);
+		delete theDoubleSolenoid_LeftCannon;
+		delete theDoubleSolenoid_RightCannon;
 		delete theUtilities;
+		delete gamepad;
 	}
 
 	void Autonomous()
@@ -113,52 +113,53 @@ private:
 					HeartbeatTickDurationInSeconds);
 			HeartbeatTimer.Reset();
 			HeartbeatTimer.Start();
-			printf("Left Trigger Axis %f\n",gamepad->GetRawAxis(GAMEPAD_AXIS_LEFT_TRIGGER));
 		}
     }
 
-	int TogglePiston()
-	{
-		if (theDoubleSolenoid->Get() == DoubleSolenoid::kReverse) {
-    		theDoubleSolenoid->Set(DoubleSolenoid::kForward); // Deploy it so its anchored, and robot can pivot arround it.
-    	} else {
-    		theDoubleSolenoid->Set(DoubleSolenoid::kReverse); // Retract it so robot can move around.
-    	}
-		return theDoubleSolenoid->Get();
-
-	}
-
-	void CommandPivotPistonPosition() {
-	    if (theUtilities->GetJoystickButton(GAMEPAD_BUTTON_A, gamepad)) {
-	    	if (theDoubleSolenoid->Get() == DoubleSolenoid::kReverse) {
-	    		theDoubleSolenoid->Set(DoubleSolenoid::kForward); // Deploy it so its anchored, and robot can pivot arround it.
-	    	} else {
-	    		theDoubleSolenoid->Set(DoubleSolenoid::kReverse); // Retract it so robot can move around.
-	    	}
-			printf("PistonPositionToggled (%d)\n", TogglePiston());
-	    }
-	}
+//	int TogglePiston()
+//	{
+//		if (theDoubleSolenoid->Get() == DoubleSolenoid::kReverse) {
+//    		theDoubleSolenoid->Set(DoubleSolenoid::kForward); // Deploy it so its anchored, and robot can pivot arround it.
+//    	} else {
+//    		theDoubleSolenoid->Set(DoubleSolenoid::kReverse); // Retract it so robot can move around.
+//    	}
+//		return theDoubleSolenoid->Get();
+//
+//	}
+//
+//	void CommandPivotPistonPosition() {
+//	    if (theUtilities->GetJoystickButton(GAMEPAD_BUTTON_A, gamepad)) {
+//	    	if (theDoubleSolenoid->Get() == DoubleSolenoid::kReverse) {
+//	    		theDoubleSolenoid->Set(DoubleSolenoid::kForward); // Deploy it so its anchored, and robot can pivot arround it.
+//	    	} else {
+//	    		theDoubleSolenoid->Set(DoubleSolenoid::kReverse); // Retract it so robot can move around.
+//	    	}
+//			printf("PistonPositionToggled (%d)\n", TogglePiston());
+//	    }
+//	}
 
 	void ProcessFireControl() {
 		static bool lastArmingButtonState = 0;
 		if (gamepad->GetRawButton(GAMEPAD_BUTTON_Y)) {
+			gamepad->SetRumble(Joystick::kLeftRumble,0.7);
 			if (!lastArmingButtonState) {
 				printf("DANGER!  Shooter is Armed.  DANGER!\n");
 			}
 			lastArmingButtonState = true;
 			if (gamepad->GetRawAxis(GAMEPAD_AXIS_LEFT_TRIGGER) > 0.8) {
 				printf("LEFT CANNON FIRED!\n");
-				theSolenoid_Left->Set(true);
-				wait(1.0);
-				theSolenoid_Left->Set(false);
+				theDoubleSolenoid_LeftCannon->Set(DoubleSolenoid::kForward);
+				Wait(0.1);
+				theDoubleSolenoid_LeftCannon->Set(DoubleSolenoid::kReverse);
 			}
 			if (gamepad->GetRawAxis(GAMEPAD_AXIS_RIGHT_TRIGGER) > 0.8) {
 				printf("RIGHT CANNON FIRED!\n");
-				theSolenoid_Right->Set(true);
-				wait(1.0);
-				theSolenoid_Right->Set(false);
+				theDoubleSolenoid_RightCannon->Set(DoubleSolenoid::kForward);
+				Wait(0.1);
+				theDoubleSolenoid_RightCannon->Set(DoubleSolenoid::kReverse);
 			}
 		} else {
+			gamepad->SetRumble(Joystick::kLeftRumble,0.0);
 			if (lastArmingButtonState) {
 				printf("Shooter is DISARMED.\n");
 			}
