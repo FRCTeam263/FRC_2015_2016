@@ -40,3 +40,11 @@ local.properties
 # TeXlipse plugin
 .texlipse
 
+*.log
+.metadata/.plugins/org.eclipse.cdt.core/.log
+*.pdom
+*.xml
+*.log
+.metadata/.plugins/org.eclipse.cdt.ui/AtlasPivot.build.log
+*.markers
+*.o

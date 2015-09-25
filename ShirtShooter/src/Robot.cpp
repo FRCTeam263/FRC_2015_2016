@@ -34,9 +34,12 @@ class Robot: public SampleRobot
 	Timer HeartbeatTimer;
 	const double HeartbeatTickDurationInSeconds = 5.0;
 	long lifetimeTickCounter = 0;
+	Timer LightingEffectsTimer;
+	const double LightingDurationInSeconds = 1.0;
 	Utilities *theUtilities;
 	DoubleSolenoid *theDoubleSolenoid_LeftCannon;
 	DoubleSolenoid *theDoubleSolenoid_RightCannon;
+	I2C *i2c;
 
 public:
 	Robot() :
@@ -45,6 +48,8 @@ public:
 		myRobot.SetExpiration(0.1);
 		HeartbeatTimer.Reset();
 		HeartbeatTimer.Start();
+		LightingEffectsTimer.Reset();
+		LightingEffectsTimer.Start();
 		printf("RoboRIO Initialized.\n");
 		theUtilities = new Utilities();
 		gamepad = new Joystick(0);
@@ -52,6 +57,7 @@ public:
 		theDoubleSolenoid_LeftCannon->Set(DoubleSolenoid::kReverse);
 		theDoubleSolenoid_RightCannon = new DoubleSolenoid(DOUBLESOLENOID_RIGHT_CANNON_FORWARD_CHANNEL,DOUBLESOLENOID_RIGHT_CANNON_REVERSE_CHANNEL);
 		theDoubleSolenoid_RightCannon->Set(DoubleSolenoid::kReverse);
+		i2c = new I2C(I2C::kOnboard, 1);
 	}
 
 	~Robot()
@@ -62,10 +68,12 @@ public:
 		delete theDoubleSolenoid_RightCannon;
 		delete theUtilities;
 		delete gamepad;
+		delete i2c;
 	}
 
 	void Autonomous()
 	{
+		sendColor('b');
 		myRobot.SetSafetyEnabled(false);
 		while(IsAutonomous() && IsEnabled())
 		{
@@ -82,7 +90,6 @@ public:
 	 */
 	void OperatorControl()
 	{
-
 		myRobot.SetSafetyEnabled(true);
 		while (IsOperatorControl() && IsEnabled())
 		{
@@ -141,6 +148,7 @@ private:
 	void ProcessFireControl() {
 		static bool lastArmingButtonState = 0;
 		if (gamepad->GetRawButton(GAMEPAD_BUTTON_Y)) {
+			sendColor('r');
 			gamepad->SetRumble(Joystick::kLeftRumble,0.7);
 			if (!lastArmingButtonState) {
 				printf("DANGER!  Shooter is Armed.  DANGER!\n");
@@ -159,6 +167,7 @@ private:
 				theDoubleSolenoid_RightCannon->Set(DoubleSolenoid::kReverse);
 			}
 		} else {
+			ProcessLightingEffects();
 			gamepad->SetRumble(Joystick::kLeftRumble,0.0);
 			if (lastArmingButtonState) {
 				printf("Shooter is DISARMED.\n");
@@ -166,6 +175,37 @@ private:
 			lastArmingButtonState = false;
 		}
 	}
+
+	void ProcessLightingEffects()
+	{
+		const int totalColors = 2;
+		unsigned char colors[totalColors] = { 'g', 'b' };
+		static int theColorCommandIndex = 0;
+
+		if (HeartbeatTimer.HasPeriodPassed(LightingDurationInSeconds))
+		{
+			theColorCommandIndex = theColorCommandIndex % totalColors;
+			sendColor(colors[theColorCommandIndex++]);
+		}
+	}
+
+	void sendColor(unsigned char theColor) {
+		// Three alternate calls each works.  Transaction, WriteBulk or Write.
+		// But the Transaction's return value is always true, and Write always sends an extra character (2 instead of 1).
+		// So for single character transmit communication, it appears WriteBulk works best.
+//		  if (i2c->Transaction(&theColor, 1, NULL, 0)) {  // Works but always returns true.
+//        if (i2c->Write(0,theColor)) {  // Write always sends an extra character, can't get it to stop.  Use WriteBulk or Transaction instead.
+        if (i2c->WriteBulk(&theColor,1)) {
+		   printf("Did not work.\n");
+			//if i2c->Transaction returns true, it doesn't work
+			//i2c->Transaction returns false, it works
+		}
+		else
+		{
+		   printf("Sent Command: %d\n",theColor);
+		}
+	}
+
 };
 
 START_ROBOT_CLASS(Robot);

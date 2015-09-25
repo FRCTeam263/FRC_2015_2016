@@ -8986,3 +8986,167 @@ org.eclipse.core.runtime.CoreException: No property tester contributes a propert
 !MESSAGE No property tester contributes a property org.eclipse.core.resources.projectNature to type class org.eclipse.cdt.internal.core.model.TranslationUnit
 !SUBENTRY 1 org.eclipse.core.expressions 4 201 2015-09-25 10:14:57.611
 !MESSAGE No property tester contributes a property org.eclipse.core.resources.projectNature to type class org.eclipse.cdt.internal.core.model.TranslationUnit
+!SESSION 2015-09-25 10:38:29.748 -----------------------------------------------
+eclipse.buildId=4.5.0.I20150603-2000
+java.version=1.8.0_31
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2015-09-25 10:38:42.856
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.cdt.core 4 0 2015-09-25 10:38:42.950
+!MESSAGE Error: Cannot run program "gcc": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "gcc": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:349)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:91)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:91)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:194)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:263)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:759)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:689)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:562)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.cdt.core 4 0 2015-09-25 10:38:43.021
+!MESSAGE Error: Cannot run program "g++": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "g++": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:349)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:91)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:91)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:194)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:263)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:759)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:689)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:562)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2015-09-25 10:38:43.217
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2015-09-25 10:38:43.225
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2015-09-25 10:38:43.233
+!MESSAGE Installing cpp if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2015-09-25 10:38:43.243
+!MESSAGE Installedcpp
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2015-09-25 10:38:43.250
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2015-09-25 10:38:43.257
+!MESSAGE Installedjava
+
+!ENTRY org.eclipse.core.resources 4 567 2015-09-25 10:38:57.271
+!MESSAGE The project description file (.project) for 'RoboRIO-Master-I2C' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+
+!ENTRY org.eclipse.core.resources 4 567 2015-09-25 10:39:21.530
+!MESSAGE The project description file (.project) for 'RoboRIO-Master-I2C' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+
+!ENTRY org.eclipse.core.resources 4 567 2015-09-25 10:40:11.008
+!MESSAGE The project description file (.project) for 'RoboRIO-Master-Serial' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+
+!ENTRY org.eclipse.core.jobs 4 2 2015-09-25 10:40:57.628
+!MESSAGE Deadlock detected. All locks owned by thread Worker-14 will be suspended.
+!STACK 0
+java.lang.IllegalStateException
+	at org.eclipse.core.internal.jobs.DeadlockDetector.reportDeadlock(DeadlockDetector.java:599)
+	at org.eclipse.core.internal.jobs.DeadlockDetector.lockWaitStart(DeadlockDetector.java:403)
+	at org.eclipse.core.internal.jobs.LockManager.addLockWaitThread(LockManager.java:154)
+	at org.eclipse.core.internal.jobs.OrderedLock.doAcquire(OrderedLock.java:168)
+	at org.eclipse.core.internal.jobs.OrderedLock.acquire(OrderedLock.java:106)
+	at org.eclipse.core.internal.jobs.OrderedLock.acquire(OrderedLock.java:82)
+	at org.eclipse.cdt.internal.core.settings.model.xml.XmlProjectDescriptionStorage.getProjectDescription(XmlProjectDescriptionStorage.java:230)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescriptionInternal(CProjectDescriptionManager.java:437)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:419)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:413)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:406)
+	at org.eclipse.cdt.internal.core.model.CProject.computeSourceRoots(CProject.java:584)
+	at org.eclipse.cdt.internal.core.model.CProject.computeChildren(CProject.java:605)
+	at org.eclipse.cdt.internal.core.model.CProject.buildStructure(CProject.java:569)
+	at org.eclipse.cdt.internal.core.model.Openable.generateInfos(Openable.java:261)
+	at org.eclipse.cdt.internal.core.model.CElement.openWhenClosed(CElement.java:427)
+	at org.eclipse.cdt.internal.core.model.CElement.getElementInfo(CElement.java:305)
+	at org.eclipse.cdt.internal.core.model.CElement.getElementInfo(CElement.java:295)
+	at org.eclipse.cdt.internal.core.model.Parent.getChildren(Parent.java:55)
+	at org.eclipse.cdt.internal.core.model.CProject.getSourceRoots(CProject.java:467)
+	at org.eclipse.cdt.internal.core.model.CModelManager.create(CModelManager.java:337)
+	at org.eclipse.cdt.internal.core.model.CModelManager.create(CModelManager.java:265)
+	at org.eclipse.cdt.internal.core.model.DeltaProcessor.createElement(DeltaProcessor.java:87)
+	at org.eclipse.cdt.internal.core.model.DeltaProcessor.traverseDelta(DeltaProcessor.java:453)
+	at org.eclipse.cdt.internal.core.model.DeltaProcessor.traverseDelta(DeltaProcessor.java:471)
+	at org.eclipse.cdt.internal.core.model.DeltaProcessor.processResourceDelta(DeltaProcessor.java:433)
+	at org.eclipse.cdt.internal.core.model.CModelManager.resourceChanged(CModelManager.java:900)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:373)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1470)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2250)
+	at org.eclipse.core.internal.events.NotificationManager$NotifyJob.run(NotificationManager.java:43)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.jobs 4 2 2015-09-25 10:40:57.629
+!MESSAGE Thread Worker-14 has locks: OrderedLock (0) and is waiting for lock OrderedLock (33)
+!SUBENTRY 1 org.eclipse.core.jobs 4 2 2015-09-25 10:40:57.629
+!MESSAGE Thread main has locks: OrderedLock (33) and is waiting for lock OrderedLock (5)
+!SUBENTRY 1 org.eclipse.core.jobs 4 2 2015-09-25 10:40:57.629
+!MESSAGE Thread Worker-13 has locks: P/Omega, OrderedLock (5) and is waiting for lock OrderedLock (0)
+
+!ENTRY org.eclipse.core.jobs 4 2 2015-09-25 10:40:57.688
+!MESSAGE An internal error occurred during: "Refreshing workspace".
+!STACK 0
+org.eclipse.core.runtime.AssertionFailedException: assertion failed: The workspace tree is already locked
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:110)
+	at org.eclipse.core.internal.resources.Workspace.setTreeLocked(Workspace.java:2309)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:282)
+	at org.eclipse.core.internal.events.NotificationManager.handleEvent(NotificationManager.java:271)
+	at org.eclipse.core.internal.resources.Workspace.broadcastEvent(Workspace.java:368)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1592)
+	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-09-25 10:41:07.589
+!MESSAGE Indexed 'Tank 2 Stick' (5 sources, 390 headers) in 7.07 sec: 43,606 declarations; 61,640 references; 0 unresolved inclusions; 17 syntax errors; 72 unresolved names (0.068%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-09-25 10:41:11.611
+!MESSAGE Indexed 'AtlasPlus' (9 sources, 395 headers) in 4.02 sec: 43,938 declarations; 63,900 references; 0 unresolved inclusions; 16 syntax errors; 12 unresolved names (0.011%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-09-25 10:41:15.107
+!MESSAGE Indexed 'RoboRIO-Master-I2C' (1 sources, 376 headers) in 3.49 sec: 42,158 declarations; 58,557 references; 0 unresolved inclusions; 16 syntax errors; 22 unresolved names (0.022%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-09-25 10:41:18.444
+!MESSAGE Indexed 'Intermediate Vision' (1 sources, 378 headers) in 3.33 sec: 42,259 declarations; 58,724 references; 0 unresolved inclusions; 16 syntax errors; 12 unresolved names (0.012%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-09-25 10:41:21.754
+!MESSAGE Indexed 'Omega' (9 sources, 395 headers) in 3.3 sec: 43,938 declarations; 63,900 references; 0 unresolved inclusions; 16 syntax errors; 12 unresolved names (0.011%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-09-25 10:41:30.244
+!MESSAGE Indexed 'Simple Vision' (1 sources, 378 headers) in 8.48 sec: 42,256 declarations; 58,670 references; 0 unresolved inclusions; 16 syntax errors; 12 unresolved names (0.012%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-09-25 10:41:38.061
+!MESSAGE Indexed 'NavX' (4 sources, 387 headers) in 7.8 sec: 43,566 declarations; 61,549 references; 0 unresolved inclusions; 16 syntax errors; 43 unresolved names (0.041%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-09-25 10:41:44.812
+!MESSAGE Indexed 'RoboRIO-Master-Serial' (1 sources, 378 headers) in 6.74 sec: 42,265 declarations; 58,684 references; 0 unresolved inclusions; 16 syntax errors; 17 unresolved names (0.017%)
+
+!ENTRY org.eclipse.core.resources 4 372 2015-09-25 10:41:56.037
+!MESSAGE Resource '/PDP CAN Monitoring' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2015-09-25 10:41:56.041
+!MESSAGE Resource '/Tank 1 Stick' is not open.
