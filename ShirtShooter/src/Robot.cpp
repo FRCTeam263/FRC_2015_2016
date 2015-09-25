@@ -123,28 +123,6 @@ private:
 		}
     }
 
-//	int TogglePiston()
-//	{
-//		if (theDoubleSolenoid->Get() == DoubleSolenoid::kReverse) {
-//    		theDoubleSolenoid->Set(DoubleSolenoid::kForward); // Deploy it so its anchored, and robot can pivot arround it.
-//    	} else {
-//    		theDoubleSolenoid->Set(DoubleSolenoid::kReverse); // Retract it so robot can move around.
-//    	}
-//		return theDoubleSolenoid->Get();
-//
-//	}
-//
-//	void CommandPivotPistonPosition() {
-//	    if (theUtilities->GetJoystickButton(GAMEPAD_BUTTON_A, gamepad)) {
-//	    	if (theDoubleSolenoid->Get() == DoubleSolenoid::kReverse) {
-//	    		theDoubleSolenoid->Set(DoubleSolenoid::kForward); // Deploy it so its anchored, and robot can pivot arround it.
-//	    	} else {
-//	    		theDoubleSolenoid->Set(DoubleSolenoid::kReverse); // Retract it so robot can move around.
-//	    	}
-//			printf("PistonPositionToggled (%d)\n", TogglePiston());
-//	    }
-//	}
-
 	void ProcessFireControl() {
 		static bool lastArmingButtonState = 0;
 		if (gamepad->GetRawButton(GAMEPAD_BUTTON_Y)) {
@@ -182,10 +160,11 @@ private:
 		unsigned char colors[totalColors] = { 'g', 'b' };
 		static int theColorCommandIndex = 0;
 
-		if (HeartbeatTimer.HasPeriodPassed(LightingDurationInSeconds))
+		if (LightingEffectsTimer.HasPeriodPassed(LightingDurationInSeconds))
 		{
-			theColorCommandIndex = theColorCommandIndex % totalColors;
-			sendColor(colors[theColorCommandIndex++]);
+			sendColor(colors[theColorCommandIndex++ % totalColors]);
+			LightingEffectsTimer.Reset();
+			LightingEffectsTimer.Start();
 		}
 	}
 
