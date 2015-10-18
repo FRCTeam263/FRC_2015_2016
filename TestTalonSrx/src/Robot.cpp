@@ -16,12 +16,13 @@ class Robot: public SampleRobot
 	Joystick stick; // only joystick
 	CANTalon *myCANTalon;
 	float CANTalonSpeed;
-
+	const int CANBusAddress=7;
 public:
 	Robot() :
 			stick(0)		// as they are declared above.
 	{
-		myCANTalon = new CANTalon(0 );  // Change this # to match talon iD AS PROGRAMMED
+		myCANTalon = new CANTalon(CANBusAddress );  // Change this # to match talon iD AS PROGRAMMED
+		printf("The Initialized for TalonSRX CAN Address: %d \n",CANBusAddress);
 		myCANTalon->SetFeedbackDevice(CANTalon::QuadEncoder);
 		myCANTalon->Set(0);
 		myCANTalon->SetPosition(0);
