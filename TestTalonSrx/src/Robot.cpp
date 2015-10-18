@@ -49,15 +49,21 @@ public:
 	 */
 	void OperatorControl()
 	{
+		for (float i = 0.0; i>=-1.0; i-=0.05){
+			printf("Speed: %f\n", i);
+			myCANTalon->Set(i);
+			Wait(0.1);
+			if (!(IsOperatorControl() && IsEnabled())) break;
+		}
 		while (IsOperatorControl() && IsEnabled())
 		{
-			for (float i = 0.0; i<=1.0; i+=0.05){
+			for (float i = -1.0; i<=1.0; i+=0.05){
 				printf("Speed: %f\n", i);
 				myCANTalon->Set(i);
 				Wait(0.1);
 				if (!(IsOperatorControl() && IsEnabled())) break;
 			}
-			for (float i = 1.0; i>=0.0; i-=0.05){
+			for (float i = 1.0; i>=-1.0; i-=0.05){
 				printf("Speed: %f\n", i);
 				myCANTalon->Set(i);
 				Wait(0.1);
